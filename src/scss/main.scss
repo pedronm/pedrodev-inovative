@@ -1,0 +1,64 @@
+@import "./mixins/resolutions.scss";
+@import "animation.scss";
+@import "base.scss";
+
+body{
+   background-color: $neutral-background;
+}
+
+.grid{
+   display: grid;
+   grid-template: '. dot .' auto;
+   
+   @include respond(phone) {
+      display: block;
+      //grid-template: none;  
+     // grid-template-columns:1fr
+   }
+}
+
+main{
+   grid-area:dot;
+   display:flex;
+   flex-flow: column;
+
+   justify-content: center;
+
+
+   @include respond(phone){   
+      & > *{
+         padding: 0% 20%;
+      }
+   }
+
+}
+
+.about{
+
+   &__resume__text{
+     width:80%;
+   }
+
+   & .__list{
+
+      list-style:none;
+
+      border: solid 2.55px gray;
+      border-top: 0;
+      border-bottom: 0;
+      border-right: 0;
+
+      padding: 2%;
+
+      & .__item {
+         background-color: snow;
+         font-size: 1.2em;
+
+         padding: 1.2% 0%;
+      }
+   }
+}
+
+.contact{
+
+}

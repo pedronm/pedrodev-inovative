@@ -1,0 +1,31 @@
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone{
+        @media (max-width:600px) {
+            @content;
+        }
+    }
+}
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == tab-p{
+        @media (max-width:840px) {
+            @content;
+        }
+    }
+}
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == tab-l{
+        @media (max-width:1040px) {
+            @content;
+        }
+    }
+}
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == desk{
+        @media (max-width:1500px) {
+            @content;
+        }
+    }
+}
