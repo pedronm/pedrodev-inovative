@@ -62,7 +62,10 @@ main{
          }
 
          & .__conteudo {
-            overflow: auto;
+            @include resolutions.respond(phone){
+               overflow: auto;
+            }
+            overflow: hidden;
             font-family: base.$text-font;
             height:0px;
             transition: height 0.7s;
