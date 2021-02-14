@@ -5,7 +5,7 @@
         <!-- Define o encoding da página -->
         <meta charset="UTF-8" />
         <!-- Metadado de responsividade -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Compatibilidade com o EDGE -->
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <link rel="stylesheet" href="./src/scss/main.scss" />
@@ -14,23 +14,22 @@
     <body>
         <div class="grid ">            
             <main class="main">
-                <div class="about flex">
+                <div class="about">
+                    <h1 class="__title">Sobre mim</h1>
                     <div class="__resume">
-                        <h2 class="__title"></h2>
-                        <p class="__text"></p>
+                        <h3>Sou Analista de Sistemas e meu principal objetivo é solucionar problemas!</h3>
+                        <p class="__text">
+                            Trabalho com java já a cinco anos e dois com Angular. Tenho vasta experiência com arquitetura SOA, mas vejo cada tecnica e padrão como uma forma agir de acordo com a situação!
+                        </p>
                     </div>
-                    <div class="__especialidades "></div>
-                    <div class="contact">
-                        <p>Me encontre em: </p>
-                        <div class="__links">
-                            <a href="https://dev.to/pedronm">
-                                <img src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="Pedro Moraes's DEV Profile" height="30" width="30">
-                            </a>
-                        </div>
+                    <div class="__comps">
+                        
                     </div>
+                    
                 </div>
-                
+                <% include contato %>
             </main>
+
         </div>
     
     </body>

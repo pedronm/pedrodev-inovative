@@ -1,0 +1,13 @@
+@mixin flexRow($max: null, $min: null, $base: null, $wrap){
+    flex-flow: row $wrap; 
+    @if $max and $min and $base {
+        flex: $min $max $base;
+    }
+
+}
+@mixin flexColumn($max: null, $min: null, $base: null, $wrap){
+    flex-flow: column $wrap; 
+    @if $max and $min and $base {
+        flex: $min $max $base;
+    }
+}

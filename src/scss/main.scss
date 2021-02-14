@@ -1,64 +1,100 @@
-@import "./mixins/resolutions.scss";
-@import "animation.scss";
-@import "base.scss";
+@use './mixins/resolutions';
+@use './mixins/utilLayout.scss';
+@use './animation';
+@use './base';
 
 body{
-   background-color: $neutral-background;
+   background-color: base.$neutral-background;
 }
 
 .grid{
    display: grid;
-   grid-template: '. dot .' auto;
-   
-   @include respond(phone) {
-      display: block;
-      //grid-template: none;  
-     // grid-template-columns:1fr
-   }
+   grid-template: ' . dot .' auto / 1fr 2fr 1fr ;
 }
+
+.flex{display:flex;}
 
 main{
    grid-area:dot;
-   display:flex;
-   flex-flow: column;
-
-   justify-content: center;
-
-
-   @include respond(phone){   
-      & > *{
-         padding: 0% 20%;
-      }
-   }
-
+   max-width:100%;
 }
 
 .about{
 
-   &__resume__text{
-     width:80%;
-   }
+   @include utilLayout.flexRow(2,3, 300px, wrap);
+   @include resolutions.respond(phone){
+      justify-content: flex-start;
+      max-width: 400px;
 
-   & .__list{
-
-      list-style:none;
-
-      border: solid 2.55px gray;
-      border-top: 0;
-      border-bottom: 0;
-      border-right: 0;
-
-      padding: 2%;
-
-      & .__item {
-         background-color: snow;
-         font-size: 1.2em;
-
-         padding: 1.2% 0%;
+      & > *{
+         max-width: 350px;
       }
    }
+
+   padding: base.$basic-spacing;  
+
+   & .__resume{
+      padding: base.$basic-spacing;
+      margin: 1rem 1.2rem;
+   }
+
+   & .__especialidades {
+      & .__especialidade{
+         padding: base.$basic-spacing;
+         margin: 1rem 1.2rem;
+         background-color:base.$card-color;
+         & .arrow {
+            cursor:pointer;
+            background-size: 100%;
+            background: url('./../../assets/arrow.png') 0 0 no-repeat; 
+            float:right;
+            height:24px;
+            width:24px;
+         } 
+         & .arrow:before {
+            content:"";               
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);        
+            transition:all 0.6s;
+         }
+
+         & .__conteudo {
+            overflow: auto;
+            font-family: base.$text-font;
+            height:0px;
+            transition: height 0.7s;
+         }
+      }
+   }
+
+   & .contact{
+      padding: 0.5rem 2rem; 
+   }
+
 }
 
-.contact{
+.__title{
+   font-family:base.$title-font;
+}
 
+input[id*="btnCheck_"] {
+   display:none;
+}
+
+input[id*="btnCheck_"]:checked ~ h2 > label.spin {
+   background-color:white;
+   border-radius: 2px;
+   background: url('./../../assets/arrow.png') 0 0 np-repeat;
+   -webkit-transform: rotate(-30deg);
+   -moz-transform: rotate(-30deg);
+   -ms-transform: rotate(-30deg);
+   -o-transform: rotate(-30deg);
+   transform: rotate(-30deg);
+}
+
+input[id*="btnCheck_"]:checked ~ div#conteudo{
+   height:150px;
 }
