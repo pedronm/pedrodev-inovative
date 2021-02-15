@@ -1,11 +1,16 @@
 @forward "variables";
+@use './mixins/resolutions';
 @import url('https://fonts.googleapis.com/css2?family=Antic+Slab&family=Nunito+Sans:ital,wght@0,300;1,200&family=Oswald:wght@200;300;400&display=swap');
 
 /*** 
    Reset
 **/
 :root{
-    font-size: 10px;
+   font-size: 14px;
+   
+   @include resolutions.respond(phone){
+      font-size: 12px;
+   }
 }
 
 html, body{

@@ -33,19 +33,34 @@ error => {
 
 function renderExpertiseTela(especialidade){
     var template = `
-                <div class="__especialidade">
+                <div class="__especialidade ">
                     <input id="btnCheck_${especialidade.id}" type="checkbox"/>
                     <h2 class="__title">${especialidade.titulo}
                         <label for="btnCheck_${especialidade.id}" class="arrow spin"></label>
                     </h2>
-                    <div id="conteudo" class="__conteudo">
-                        <p class="__desc">${especialidade.descricao}</p>
-                        <aside class="__keys">${especialidade.keys}</aside>
+                    <div id="conteudo" class="__conteudo flex">
+                        <p class="__desc">${especialidade.descricao}</p>                        
+                        <h3 class="__sub-title">Algumas Tecnologias </h3>
+                        <p class="__keys">${getBreads(especialidade.keys)}</p>
                     </div>
                 </div>
             `
     var exprArea = document.querySelector('main>.about>.__especialidades')
     exprArea.innerHTML += template
+}
+
+function getBreads(breads){
+    var lista = '';
+    breads.map( bread => {
+        if(bread !== ''
+            && bread != null
+            && bread != undefined)
+        {
+            lista += ` <span class="__breadcrumb"> ${bread}</span>  `
+        }
+        
+    })
+    return lista
 }
 
 function startResumo(){

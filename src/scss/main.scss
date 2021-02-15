@@ -9,25 +9,26 @@ body{
 
 .grid{
    display: grid;
-   grid-template: ' . dot .' auto / 1fr 2fr 1fr ;
+   grid-template: ' . . dot . . '  1fr 1fr 1fr;
 }
 
 .flex{display:flex;}
 
 main{
-   grid-area:dot;
+   grid-area: 'dot';
    max-width:100%;
 }
 
 .about{
 
-   @include utilLayout.flexRow(2,3, 300px, wrap);
+   flex-flow:column;
+
    @include resolutions.respond(phone){
       justify-content: flex-start;
-      max-width: 400px;
+      max-width: 500px;
 
       & > *{
-         max-width: 350px;
+         width:85%;
       }
    }
 
@@ -39,10 +40,12 @@ main{
    }
 
    & .__especialidades {
+
       & .__especialidade{
-         padding: base.$basic-spacing;
          margin: 1rem 1.2rem;
+         padding: base.$basic-spacing;         
          background-color:base.$card-color;
+
          & .arrow {
             cursor:pointer;
             background-size: 100%;
@@ -62,13 +65,45 @@ main{
          }
 
          & .__conteudo {
-            @include resolutions.respond(phone){
-               overflow: auto;
-            }
+            flex-direction:column;
+
             overflow: hidden;
             font-family: base.$text-font;
             height:0px;
             transition: height 0.7s;
+            
+            min-width: auto;
+            min-height: auto;
+                     
+            
+            & .__desc{
+               padding: 5px;
+               word-break: break-all; 
+
+            }
+            
+            & .__sub-title{
+               background-color:white;
+               align-self: flex-start;
+               border-radius: 1rem;
+               padding: 0.60rem;
+            }
+
+            & .__keys{
+               padding: 5px;
+               word-break: break-all; 
+            }
+
+            & .__breadcrumb{
+               display:inline-block;
+               font-size: 1.35rem;
+               padding: 0 0.98rem 0 0.98rem;
+               margin:0.10rem 0.18rem 0.10rem 0.18rem;
+               font-weight: bold;
+               border-radius: 0.22rem;
+               background: #deb887;
+               box-shadow:3.75px -2.45px #ce954b ;
+            }
          }
       }
    }
@@ -99,5 +134,30 @@ input[id*="btnCheck_"]:checked ~ h2 > label.spin {
 }
 
 input[id*="btnCheck_"]:checked ~ div#conteudo{
-   height:150px;
+
+   height:300px;
+
+   @include resolutions.respond(phone){
+      height:500px;
+   }
+   
+}
+
+.flex-1{
+   flex:1;
+}
+
+.flex-2{
+   flex:2;
+}
+
+.flex-3{
+   flex:3;
+}
+.floar-l{
+   float:left;
+}
+
+.floart-r{
+   float:right;
 }

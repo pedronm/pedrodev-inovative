@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/pedronm/welcome-page-ph/issues"
   },
-  "homepage": "https://github.com/pedronm/welcome-page-ph#readme"
+  "homepage": "https://github.com/pedronm/welcome-page-ph#readme",
+  "engines": {
+    "node":"14.x"
+  }
 }
